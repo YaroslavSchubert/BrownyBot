@@ -12,13 +12,10 @@
             "name": "AboutMe"
         },
         {
-            "name": "Hello"
+            "name": "Help"
         },
         {
             "name": "None"
-        },
-        {
-            "name": "Thanks"
         }
     ],
     "entities": [],
@@ -66,6 +63,41 @@
         },
         {
             "text": "bfwa",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "thanks",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "thank you",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "thank you very much",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "hello",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "hi",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "nice to meet you!",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "'hi'",
             "intent": "None",
             "entities": []
         },
@@ -135,38 +167,38 @@
             "entities": []
         },
         {
-            "text": "hello",
-            "intent": "Hello",
+            "text": "help",
+            "intent": "Help",
             "entities": []
         },
         {
-            "text": "hi",
-            "intent": "Hello",
+            "text": "help me",
+            "intent": "Help",
             "entities": []
         },
         {
-            "text": "nice to meet you!",
-            "intent": "Hello",
+            "text": "features",
+            "intent": "Help",
             "entities": []
         },
         {
-            "text": "'hi'",
-            "intent": "Hello",
+            "text": "what are your features",
+            "intent": "Help",
             "entities": []
         },
         {
-            "text": "thanks",
-            "intent": "Thanks",
+            "text": "what are your capabilities",
+            "intent": "Help",
             "entities": []
         },
         {
-            "text": "thank you",
-            "intent": "Thanks",
+            "text": "what can you do",
+            "intent": "Help",
             "entities": []
         },
         {
-            "text": "thank you very much",
-            "intent": "Thanks",
+            "text": "need help",
+            "intent": "Help",
             "entities": []
         }
     ]

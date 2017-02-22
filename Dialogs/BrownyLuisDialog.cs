@@ -1,9 +1,11 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using BrownyBot.Internal;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
+using Microsoft.Bot.Connector;
 
 namespace BrownyBot.Dialogs
 {
@@ -13,10 +15,10 @@ namespace BrownyBot.Dialogs
   {
     [LuisIntent("None")]
     [LuisIntent("")]
-    public async Task ProcessNone(IDialogContext context, LuisResult result)
+    public async Task ProcessNone(IDialogContext context, IAwaitable<IMessageActivity> message, LuisResult result)
     {
-      await context.PostAsync("I'm sorry. I didn't understand you.");
-      context.Wait(MessageReceived);
+      var cts = new CancellationTokenSource();
+      await context.Forward(new GreetingsDialog(), GreetingDialogDone, await message, cts.Token);
     }
 
     [LuisIntent("AboutMe")]
@@ -33,39 +35,35 @@ namespace BrownyBot.Dialogs
       context.Wait(MessageReceived);
     }
 
-    [LuisIntent("Hello")]
-    public async Task ProcessHello(IDialogContext context, LuisResult result)
+    [LuisIntent("Help")]
+    public async Task ProcessHelp(IDialogContext context, LuisResult result)
     {
-      var messages = new[]
-      {
-                "Hello!",
-                "Nice to meet you!",
-                "Hi! What can I help you with?",
-                "I'm here to help you!"
-      };
-
-      var message = messages[(new Random()).Next(messages.Length - 1)];
-      await context.PostAsync(message, "en-US");
-
+      await context.PostAsync(Responses.Help, "en-US");
       context.Wait(MessageReceived);
     }
 
-    [LuisIntent("Thanks")]
-    public async Task ProcessThanks(IDialogContext context, LuisResult result)
+    [LuisIntent("Weather")]
+    public async Task ProcessWeather(IDialogContext context, LuisResult result)
     {
-      var messages = new[]
-      {
-                "Never mind",
-                "You are welcome!",
-                "Happy to be useful"
-      };
+      await context.PostAsync("Weather", "en-US");
+      context.Wait(MessageReceived);
+    }
 
-      var message = messages[(new Random()).Next(messages.Length - 1)];
-      await context.PostAsync(message, "en-US");
+    [LuisIntent("ImageCaption")]
+    public async Task ProcessImageCaption(IDialogContext context, LuisResult result)
+    {
+      await context.PostAsync("ImageCaption", "en-US");
+      context.Wait(MessageReceived);
+    }
+
+    private async Task GreetingDialogDone(IDialogContext context, IAwaitable<bool> result)
+    {
+      var success = await result;
+      if (!success)
+        await context.PostAsync("I'm sorry. I didn't understand you.");
 
       context.Wait(MessageReceived);
     }
 
   }
-
 }
