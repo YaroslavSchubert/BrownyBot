@@ -12,6 +12,8 @@ namespace BrownyBot.Controllers
   [BotAuthentication]
   public class MessagesController : ApiController
   {
+    private readonly ResponseService _responseService = new ResponseService();
+
     /// <summary>
     /// POST: api/Messages
     /// Receive a message from a user and reply to it
@@ -20,7 +22,7 @@ namespace BrownyBot.Controllers
     {
       if (activity.Type == ActivityTypes.Message)
       {
-        await ResponseService.Process(activity);
+        await _responseService.Process(activity);
       }
       else
       {
