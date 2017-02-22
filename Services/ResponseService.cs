@@ -144,8 +144,14 @@ namespace BrownyBot.Services
     /// <returns>JwT token of the bot</returns>
     private static async Task<string> GetTokenAsync(ConnectorClient connector)
     {
-      if (connector.Credentials is MicrosoftAppCredentials credentials)
+      //if (connector.Credentials is MicrosoftAppCredentials credentials)
+      //  return await credentials.GetTokenAsync();
+
+      var credentials = connector.Credentials as MicrosoftAppCredentials;
+      if (credentials != null)
+      {
         return await credentials.GetTokenAsync();
+      }
 
       return null;
     }
@@ -169,7 +175,8 @@ namespace BrownyBot.Services
         }
       }
 
-      if (TryParseAnchorTag(activity.Text, out string url))
+      string url;
+      if (TryParseAnchorTag(activity.Text, out url))
       {
         return await _captionService.GetCaptionAsync(url);
       }
