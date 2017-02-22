@@ -4,7 +4,10 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using BrownyBot.Dialogs;
+using BrownyBot.Internal;
 using BrownyBot.Services;
+using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
 
 namespace BrownyBot.Controllers
@@ -12,8 +15,6 @@ namespace BrownyBot.Controllers
   [BotAuthentication]
   public class MessagesController : ApiController
   {
-    private readonly ResponseService _responseService = new ResponseService();
-
     /// <summary>
     /// POST: api/Messages
     /// Receive a message from a user and reply to it
@@ -22,7 +23,7 @@ namespace BrownyBot.Controllers
     {
       if (activity.Type == ActivityTypes.Message)
       {
-        await _responseService.Process(activity);
+        await Conversation.SendAsync(activity, () => new BrownyLuisDialog());
       }
       else
       {
@@ -43,7 +44,7 @@ namespace BrownyBot.Controllers
       { 
         if (message.MembersAdded.Any(x => x.Id == message.Recipient.Id))
         {
-          var reply = message.CreateReply($"Hi! I am Browny, intelligent combat robot from Contra Hard Corps! Say \"hi\" if you'd like to chat ");
+          var reply = message.CreateReply(Responses.WelcomeMessage);
 
           var connector = new ConnectorClient(new Uri(message.ServiceUrl));
 

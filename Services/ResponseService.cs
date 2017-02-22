@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using BrownyBot.Internal;
 using Microsoft.Bot.Connector;
 
 namespace BrownyBot.Services
@@ -60,9 +61,8 @@ namespace BrownyBot.Services
           case "who are you":
           case "tell me a bit about yourself":
           case "information":
-            response =
-              "My name is Browny (because of my warm personality). I am a small-sized combat robot. Officially known as CX-1-DA300. My ability to link up with numerous data systems makes me an unsurpassed intelligence tool.";
-            break;
+            response = Responses.AboutBrowny;
+              break;
           case "what are your weapons":
           case "what weapons do you have":
           case "how do you fight":
@@ -189,7 +189,7 @@ namespace BrownyBot.Services
       // If we reach here then the activity is neither an image attachment nor an image URL.
       throw new ArgumentException("The activity doesn't contain a valid image attachment or an image URL.");
     }
-
+    
     private bool ContainsImage(Activity activity)
     {
       var imageAttachment = activity.Attachments?.FirstOrDefault(a => a.ContentType.Contains("image"));

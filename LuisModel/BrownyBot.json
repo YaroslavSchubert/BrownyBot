@@ -1,0 +1,173 @@
+{
+    "luis_schema_version": "1.3.1",
+    "versionId": "0.1",
+    "name": "BrownyBot",
+    "desc": "",
+    "culture": "en-us",
+    "intents": [
+        {
+            "name": "AboutAuthor"
+        },
+        {
+            "name": "AboutMe"
+        },
+        {
+            "name": "Hello"
+        },
+        {
+            "name": "None"
+        },
+        {
+            "name": "Thanks"
+        }
+    ],
+    "entities": [],
+    "composites": [],
+    "closedLists": [],
+    "bing_entities": [],
+    "actions": [],
+    "model_features": [],
+    "regex_features": [],
+    "utterances": [
+        {
+            "text": "none",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "asdfasdf",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "who is",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "whois",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "asdf",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "how are you",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "asdaf",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "bfwa",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "who is rocket",
+            "intent": "AboutAuthor",
+            "entities": []
+        },
+        {
+            "text": "'who is rocket'",
+            "intent": "AboutAuthor",
+            "entities": []
+        },
+        {
+            "text": "'author'",
+            "intent": "AboutAuthor",
+            "entities": []
+        },
+        {
+            "text": "author",
+            "intent": "AboutAuthor",
+            "entities": []
+        },
+        {
+            "text": "who is author",
+            "intent": "AboutAuthor",
+            "entities": []
+        },
+        {
+            "text": "'author%2",
+            "intent": "AboutAuthor",
+            "entities": []
+        },
+        {
+            "text": "who is browny",
+            "intent": "AboutMe",
+            "entities": []
+        },
+        {
+            "text": "browny",
+            "intent": "AboutMe",
+            "entities": []
+        },
+        {
+            "text": "aboutme",
+            "intent": "AboutMe",
+            "entities": []
+        },
+        {
+            "text": "'who is browny'",
+            "intent": "AboutMe",
+            "entities": []
+        },
+        {
+            "text": "robobrowny",
+            "intent": "AboutMe",
+            "entities": []
+        },
+        {
+            "text": "browny robot",
+            "intent": "AboutMe",
+            "entities": []
+        },
+        {
+            "text": "browny bot",
+            "intent": "AboutMe",
+            "entities": []
+        },
+        {
+            "text": "hello",
+            "intent": "Hello",
+            "entities": []
+        },
+        {
+            "text": "hi",
+            "intent": "Hello",
+            "entities": []
+        },
+        {
+            "text": "nice to meet you!",
+            "intent": "Hello",
+            "entities": []
+        },
+        {
+            "text": "'hi'",
+            "intent": "Hello",
+            "entities": []
+        },
+        {
+            "text": "thanks",
+            "intent": "Thanks",
+            "entities": []
+        },
+        {
+            "text": "thank you",
+            "intent": "Thanks",
+            "entities": []
+        },
+        {
+            "text": "thank you very much",
+            "intent": "Thanks",
+            "entities": []
+        }
+    ]
+}
