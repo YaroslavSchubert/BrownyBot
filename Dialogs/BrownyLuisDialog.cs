@@ -1,7 +1,9 @@
 using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using BrownyBot.Internal;
+using BrownyBot.Services;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
@@ -38,21 +40,28 @@ namespace BrownyBot.Dialogs
     [LuisIntent("Help")]
     public async Task ProcessHelp(IDialogContext context, LuisResult result)
     {
-      await context.PostAsync(Responses.Help, "en-US");
+      await context.PostAsync(Responses.Help);
       context.Wait(MessageReceived);
     }
 
     [LuisIntent("Weather")]
     public async Task ProcessWeather(IDialogContext context, LuisResult result)
     {
-      await context.PostAsync("Weather", "en-US");
+      await context.PostAsync("Weather");
       context.Wait(MessageReceived);
     }
 
-    [LuisIntent("ImageCaption")]
-    public async Task ProcessImageCaption(IDialogContext context, LuisResult result)
+    [LuisIntent("Caption")]
+    public async Task ProcessImageCaption(IDialogContext context, IAwaitable<IMessageActivity> message, LuisResult result)
     {
-      await context.PostAsync("ImageCaption", "en-US");
+      var cts = new CancellationTokenSource();
+      await context.Forward(new CaptionDialog(), ImageCaptionDialogDone, await message, cts.Token);
+    }
+
+    private async Task ImageCaptionDialogDone(IDialogContext context, IAwaitable<object> result)
+    {
+      await result;
+      await context.PostAsync("Caption mode ended");
       context.Wait(MessageReceived);
     }
 
@@ -64,6 +73,5 @@ namespace BrownyBot.Dialogs
 
       context.Wait(MessageReceived);
     }
-
   }
 }

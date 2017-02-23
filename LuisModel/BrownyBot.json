@@ -12,10 +12,16 @@
             "name": "AboutMe"
         },
         {
+            "name": "Caption"
+        },
+        {
             "name": "Help"
         },
         {
             "name": "None"
+        },
+        {
+            "name": "Weather"
         }
     ],
     "entities": [],
@@ -102,6 +108,36 @@
             "entities": []
         },
         {
+            "text": "hm",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "asdjf",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "asdfhjkhjgk",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "qwerqwerqwerwqe",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "public bool containsimage(iactivity activity) { var imageattachment = activity.asmessageactivity()?.attachments?.firstordefault(a => a.contenttype.contains(\"image\")); return imageattachment != null || uri.iswellformeduristring(activity.asmessageactivity()?.text, urikind.absolute); }",
+            "intent": "None",
+            "entities": []
+        },
+        {
+            "text": "here you now",
+            "intent": "None",
+            "entities": []
+        },
+        {
             "text": "who is rocket",
             "intent": "AboutAuthor",
             "entities": []
@@ -128,6 +164,16 @@
         },
         {
             "text": "'author%2",
+            "intent": "AboutAuthor",
+            "entities": []
+        },
+        {
+            "text": "rocket",
+            "intent": "AboutAuthor",
+            "entities": []
+        },
+        {
+            "text": "who is the author",
             "intent": "AboutAuthor",
             "entities": []
         },
@@ -167,6 +213,11 @@
             "entities": []
         },
         {
+            "text": "who are you",
+            "intent": "AboutMe",
+            "entities": []
+        },
+        {
             "text": "help",
             "intent": "Help",
             "entities": []
@@ -199,6 +250,36 @@
         {
             "text": "need help",
             "intent": "Help",
+            "entities": []
+        },
+        {
+            "text": "weather",
+            "intent": "Weather",
+            "entities": []
+        },
+        {
+            "text": "image caption",
+            "intent": "Caption",
+            "entities": []
+        },
+        {
+            "text": "imagecaption",
+            "intent": "Caption",
+            "entities": []
+        },
+        {
+            "text": "image",
+            "intent": "Caption",
+            "entities": []
+        },
+        {
+            "text": "https://www.mos.org/sites/dev-elvis.mos.org/files/images/main/uploads/slides/imax_extreme-weather_tornado.jpg",
+            "intent": "Caption",
+            "entities": []
+        },
+        {
+            "text": "https://lh6.ggpht.com/5ezl1zjf8cia_zb2jluk8gwy_lsrkhfgnwtqyuqydzfbjaq1fc3e6f_7vxo1cs00acgf=w170",
+            "intent": "Caption",
             "entities": []
         }
     ]
